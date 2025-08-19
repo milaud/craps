@@ -11,29 +11,21 @@
   background: transparent;
   user-select: none;
   z-index: 1;
-  /* height: 50px; */
-  /* width: 50px; */
 }
 
 .pointCells {
-  /* display: flex; */
   display: grid;
   grid-template-columns: repeat(6, 80px);
   grid-template-rows: repeat(1, 80px);
 }
 
 .dontComeBarCell {
-  /* display: flex; */
   display: grid;
   grid-template-columns: repeat(1, 60px);
   grid-template-rows: repeat(1, 80px);
-  /* height: 70px; */
-  /* width: 50px; */
 }
 
 .dontPassBarCell {
-  /* height: 70px; */
-  /* width: 50px; */
   display: grid;
   grid-template-columns: repeat(1, 60px);
   grid-template-rows: repeat(1, 220px);
@@ -44,14 +36,6 @@
   grid-template-columns: repeat(1, 460px);
   grid-template-rows: repeat(1, 70px);
 }
-
-/* .fieldCell {
-  display: flex;
-  display: grid; 
-  grid-template-columns: repeat(1, 180px);
-  grid-template-rows: repeat(1, 70px);
-} */
-
 
 .cellBet {
   position: absolute;
