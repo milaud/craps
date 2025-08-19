@@ -50,16 +50,15 @@ export const DontComeBar: React.FC= () => {
 
 export const DontPassBar: React.FC = () => {
     return (
-        <div>
+        <div className={styles.dontPassBarCell}>
             <Cell id="dontPassBar" displayName="DON'T PASS BAR" />
         </div>
     );
 };
 
 export const PassLine: React.FC = () => {
-
     return (
-        <div>
+        <div className={styles.passLineCell}>
             <Cell id="passLine" displayName="PASS LINE" />
         </div>
     );
@@ -67,7 +66,6 @@ export const PassLine: React.FC = () => {
 
 
 export const PointCells: React.FC = () => {
-
     return (
         <div className={styles.pointCells}>
             <Cell id="4" displayName="4" />
@@ -82,17 +80,15 @@ export const PointCells: React.FC = () => {
 
 export const Come: React.FC = () => {
     return (
-        <div>
+        <div className={styles.comeCell}>
             <Cell id="come" displayName="COME" />
         </div>
     );
 };
 
 export const Field: React.FC = () => {
-
-
     return (
-        <div>
+        <div className={styles.fieldCell}>
             <Cell id="field" displayName="2 3·4·9·10·11 12 FIELD" />
         </div>
     );

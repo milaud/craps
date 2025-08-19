@@ -1,7 +1,6 @@
 .page {
-    background: #3cb371;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    width: 100%;
+    background: #19702c;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
