@@ -27,6 +27,14 @@
   display: grid;
   grid-template-columns: repeat(1, 60px);
   grid-template-rows: repeat(1, 80px);
+
+  div {
+    padding: 5px;
+  }
+
+  span {
+    font-size: smaller;
+  }
 }
 
 /* .passLineCell {
@@ -38,11 +46,12 @@
 .passLineCell {
   display: flex;
   width: 50px;
-  height: 270px;
+  height: 220px;
   border: 1px solid white;
+  border-bottom: none;
   border-right: none;
   position: relative;
-  border-bottom-left-radius: 100px;
+  /* border-bottom-left-radius: 10px; */
   color: white;
   font-weight: bold;
   align-items: center;
@@ -59,12 +68,12 @@
   position: absolute;
   right: -510px;          
   top: 218px;            
-  width: 509px;
-  height: 50px;
+  width: 558px;
+  height: 49px;
   border: 1px solid white;
-  border-left: none;
+  /* border-left: none; */
   border-top: none;
-  border-radius: 0 0 20px 0;
+  border-radius: 0 0 20px 100px;
 }
 
 .dontPassBarCell {
@@ -75,7 +84,7 @@
   .cell {
     border-right: none;
     writing-mode: vertical-rl;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 10px;
   }
 }
 
@@ -85,7 +94,16 @@
   grid-template-rows: repeat(1, 70px);
   .cell {
     border-top: none;
+    font-size: xx-large;
   }
+}
+
+.comeCell span {
+  color: red;
+}
+
+.fieldCell span {
+  color: yellow;
 }
 
 

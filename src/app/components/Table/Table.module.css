@@ -1,7 +1,6 @@
 .table {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
+    align-items: center;
 }
 
 .topRowContainer {
@@ -10,4 +9,5 @@
 
 .topRow {
     display: flex;
+    align-items: center;
 }
