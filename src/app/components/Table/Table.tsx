@@ -9,18 +9,18 @@ export const Table: React.FC = () => {
 
     return (
         <div className={styles.table}>
-                <PassLine />
-                <div className={styles.innerContainer}>
-                    <DontPassBar />
-                    <div className={styles.topRowContainer}>
-                        <div className={styles.topRow}>
-                            <DontComeBar />
-                            <PointCells />
-                        </div>
-                        <Come />
-                        <Field />
+            <PassLine />
+            <div className={styles.innerContainer}>
+                <DontPassBar />
+                <div className={styles.topRowContainer}>
+                    <div className={styles.topRow}>
+                        <DontComeBar />
+                        <PointCells />
                     </div>
+                    <Come />
+                    <Field />
                 </div>
+            </div>
         </div>
     );
 };

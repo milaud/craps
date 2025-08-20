@@ -1,25 +1,10 @@
 .table {
-    /* display: flex; */
-    /* align-items: center; */
-    /* position: relative; */
     width: 640px;
-  height: 220px;
-  position: relative;
-  /* margin: 20px auto; */
-}
-
-.container {
-    /* width: 600px;
-    height: 500px;
+    height: 220px;
     position: relative;
-    margin: 20px auto; */
 }
 
 .innerContainer {
-    /* width: 500px; */
-    /* height: 400px; */
-    /* background-color: #ffecb3; */
-    /* border: 2px solid #f57c00; */
     display: flex;
     position: absolute;
     top: 20px;
