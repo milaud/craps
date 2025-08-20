@@ -10,6 +10,10 @@ interface CellProps {
     winningNumber?: string;
 }
 
+const placeChip = (id: string) => {
+    console.log(id)
+};
+
 export const Cell: React.FC<CellProps> = ({ id, displayName, onPlaceChip, totalBet, winningNumber }) => {
     const isWinning = id === winningNumber;
     // Map total bet to chip color if matches 5,25,100; else default white
@@ -23,7 +27,7 @@ export const Cell: React.FC<CellProps> = ({ id, displayName, onPlaceChip, totalB
         <div
             className={`${styles.cell} ${isWinning ? styles.highlight : ""}`}
             title={`${id}`}
-            // onClick={() => onPlaceChip(id)}
+            onClick={() => placeChip(id)}
         >
             <div>
                 <span>{displayName}</span>
