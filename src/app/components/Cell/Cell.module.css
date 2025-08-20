@@ -43,13 +43,11 @@
   display: flex;
   justify-content: center;
   writing-mode: vertical-lr;
-  height: 275px;
+  height: 265px;
   width: 550px;
   position: relative;
-  margin: 20px auto;
-  padding-left: 23px;
+  padding-left: 8px;
   border-radius: 0 0 10px 10px;
-  right: 35px;
 }
 
 .dontPassBarCell {
