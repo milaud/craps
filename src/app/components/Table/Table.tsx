@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./Table.module.css";
-import { Come, DontComeBar, DontPassBar, Field, PassLine, PassLines, PointCells, ComeField } from "../Cell/Cell";
+import { DontComeBar, PassLines, PointCells, ComeField } from "../Cell/Cell";
 
 
 export const Table: React.FC = () => {
@@ -13,13 +13,9 @@ export const Table: React.FC = () => {
                 <div className={styles.innerContainer}>
                     <DontComeBar />
                     <PointCells />
-                    <div className={styles.comeFieldContainer}>
-                        <Come />
-                        <Field />
-                    </div>
+                    <ComeField />
                 </div>
                 <PassLines />
-
             </div>
         </div>
     );

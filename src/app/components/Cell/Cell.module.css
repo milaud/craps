@@ -60,6 +60,16 @@
   /* z-index: 1; */
 }
 
+.comeFieldContainer {
+  grid-column: 1 / -1;
+  /* spans both columns */
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /* two equal height rectangles */
+  aspect-ratio: 5.5 / 1.25;
+  justify-items: start;
+}
+
 .passLine {
   position: absolute;
   top: 0;
@@ -114,5 +124,13 @@
   .passLine {
     width: 520px;
     height: 280px;
+  }
+   .comeFieldContainer {
+    width: 440px;
+    /* dontComeBar (40px) + 5 innerContainer (5 x 80px = 400px) */
+    height: 80px;
+    /* same height as a single cell */
+    aspect-ratio: auto;
+    /* override mobile aspect ratio */
   }
 }

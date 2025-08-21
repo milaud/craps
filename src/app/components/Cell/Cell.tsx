@@ -109,12 +109,8 @@ export const PassLines: React.FC = () => {
 export const ComeField: React.FC = () => {
     return (
         <div className={styles.comeFieldContainer}>
-            <div className={styles.comeFieldCell}>
-                <Cell id="come" displayName="COME" />
-            </div>
-            <div className={styles.comeFieldCell}>
-                <Cell id="field" displayName="2 3·4·9·10·11 12 FIELD" />
-            </div>
+            <Come />
+            <Field />
         </div>
     );
 };
