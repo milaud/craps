@@ -1,10 +1,8 @@
 .container {
   position: relative;
-  width: 100%;
+  width: 640px;
   aspect-ratio: 2.5 / 1;
   margin: 20px auto;
-  min-width: 640px;
-  max-width: 640px;
   background: rgba(240, 240, 240, 0.8);
   border: 1px solid #999;
   /* z-index: 2; */
@@ -26,7 +24,8 @@
   top: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 0.5fr 6fr;
+  /* grid-template-columns: 0.5fr 6fr; */
+  grid-template-columns: 1fr 6fr;
   /* half + group of 6 */
   width: calc(6/7 * 100%);
   height: calc(1.5/2.8 * 100%);
