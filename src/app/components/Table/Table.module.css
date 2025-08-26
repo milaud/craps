@@ -1,13 +1,66 @@
-.table {
-    display: flex;
-    align-items: center;
+.container {
+  position: relative;
+  width: 640px;
+  aspect-ratio: 2.5 / 1;
+  margin: 20px auto;
+  background: rgba(240, 240, 240, 0.8);
+  border: 1px solid #999;
+  /* z-index: 2; */
 }
 
-.topRowContainer {
-    display: block;
+.outerContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  /* z-index: 3; */
 }
 
-.topRow {
-    display: flex;
-    align-items: center;
+.innerContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  /* grid-template-columns: 0.5fr 6fr; */
+  grid-template-columns: 1fr 6fr;
+  /* half + group of 6 */
+  width: calc(6/7 * 100%);
+  height: calc(1.5/2.8 * 100%);
+  /* margin: 0;  */
+  /* remove margin since it's positioned absolutely */
+  z-index: 3;
+}
+
+
+
+/* Large screens: fixed pixel sizes */
+@media (min-width: 1200px) {
+  .container {
+    width: 600px;
+    /* 560px + 40px (one dontComeBar wider) */
+    height: 280px;
+    max-width: none;
+    aspect-ratio: auto;
+  }
+
+  .outerContainer {
+    width: 600px;
+    height: 280px;
+  }
+
+  .innerContainer {
+    grid-template-columns: 40px 480px;
+    /* half + 6 full */
+    justify-content: center;
+    gap: 0;
+    /* ensure no gaps between grid items */
+    height: 80px;
+    /* fixed height for innerContainer row */
+    width: 520px;
+    /* fixed width */
+  }
+
 }
