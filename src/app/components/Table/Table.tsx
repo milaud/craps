@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import styles from "./Table.module.css";
 import { DontComeBar, PassLines, PointCells, ComeField } from "../Cell/Cell";
