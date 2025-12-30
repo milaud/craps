@@ -4,19 +4,20 @@ import { DontComeBar, PassLines, PointCells, ComeField } from "../Cell/Cell";
 import { Bet } from "@/app/types";
 
 
-export const Table: React.FC<{ onPlaceChip: (id: string, amount: number) => void; getBetsForCell: (id: string) => Bet[]; selectedChip: number }> = ({ 
-  onPlaceChip, 
-  getBetsForCell, 
-  selectedChip 
+export const Table: React.FC<{ onPlaceChip: (id: string, amount: number) => void; getBetsForCell: (id: string) => Bet[]; selectedChip: number, point: number | null }> = ({
+    onPlaceChip,
+    getBetsForCell,
+    selectedChip,
+    point
 }) => {
 
     return (
-        <div className={styles.container}>
-            <div className={styles.outerContainer}>
-                <div className={styles.innerContainer}>
+        <div className={styles.table}>
+            <div className={styles.tableInner}>
+                <div>
                     <DontComeBar onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
-          <PointCells onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
-          <ComeField onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
+                    <PointCells onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} point={point} />
+                    <ComeField onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
                 </div>
                 <PassLines onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
             </div>

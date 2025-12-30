@@ -1,0 +1,111 @@
+ .container {
+     min-height: 100vh;
+     background-color: #0d47a1;
+     padding: 16px;
+ }
+
+ .contentWrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+ }
+
+ .title {
+     color: white;
+     text-align: center;
+     font-size: 36px;
+     margin-bottom: 24px;
+ }
+
+ .buttonContainer {
+     text-align: center;
+     margin: 24px 0;
+
+     button {
+         padding: 16px 32px;
+         font-size: 24px;
+         color: white;
+         border: none;
+         border-radius: 8px;
+         font-weight: bold;
+         transition: all 0.3s ease;
+         margin-right: 16px;
+     }
+
+     button:enabled {
+         cursor: pointer;
+     }
+
+     .rollBetButton:enabled {
+         background-color: #4caf50;
+     }
+
+     .clearBetButton:enabled {
+         background-color: #f44336;
+     }
+
+     .newGameButton {
+         background-color: #ff9800;
+     }
+ }
+
+
+ .activeBetsContainer {
+     background-color: rgba(0, 0, 0, 0.7);
+     color: white;
+     padding: 16px;
+     border-radius: 8px;
+     margin: 16px 0;
+ }
+
+ .activeBetsGrid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 8px;
+ }
+
+ .betCard {
+     padding: 8px;
+     background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 4px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .removeBetButton {
+     background: #f44336;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     padding: 4px 8px;
+     cursor: pointer;
+     font-size: 12px;
+ }
+
+ .totalWagered {
+     margin-top: 12px;
+     font-size: 16px;
+     font-weight: bold;
+ }
+
+ .rollHistoryContainer {
+     background-color: rgba(0, 0, 0, 0.5);
+     color: white;
+     padding: 16px;
+     border-radius: 8px;
+     margin: 16px 0;
+ }
+
+ .rollHistoryFlex {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+ }
+
+ .rollHistoryItem {
+     background-color: rgba(255, 255, 255, 0.2);
+     padding: 8px 12px;
+     border-radius: 4px;
+     font-size: 14px;
+     font-weight: bold;
+ }

@@ -11,9 +11,9 @@ export const isCraps = (total: number): boolean => total === 2 || total === 3 ||
 export const isPoint = (total: number): boolean => [4, 5, 6, 8, 9, 10].includes(total);
 
 export const resolvePassLineBets = (
-  bets: Bet[], 
-  dice: Dice, 
-  phase: GamePhase, 
+  bets: Bet[],
+  dice: Dice,
+  phase: GamePhase,
   point: number | null
 ): { winningBets: Bet[], losingBets: Bet[] } => {
   const winningBets: Bet[] = [];
@@ -79,10 +79,13 @@ export const resolvePlaceBets = (bets: Bet[], dice: Dice): { winningBets: Bet[],
   const losingBets: Bet[] = [];
 
   bets.forEach(bet => {
-    if (bet.type === BetType.Place && bet.number) {
-      if (dice.total === bet.number) {
-        winningBets.push(bet);
-      } else if (dice.total === 7) {
+    if (bet.type === BetType.Place && bet.number && bet.isOn) {
+      // if (dice.total === bet.number) {
+      //   winningBets.push(bet);
+      // } else if (dice.total === 7) {
+      //   losingBets.push(bet);
+      // }
+      if (dice.total === 7) {
         losingBets.push(bet);
       }
     }
@@ -128,9 +131,9 @@ export const getWinMultiplier = (bet: Bet, dice: Dice): number => {
       return 1;
     case BetType.Place:
       // Place bet payouts
-      if (bet.number === 6 || bet.number === 8) return 7/6; // 7:6
-      if (bet.number === 5 || bet.number === 9) return 7/5; // 7:5
-      if (bet.number === 4 || bet.number === 10) return 9/5; // 9:5
+      if (bet.number === 6 || bet.number === 8) return 7 / 6; // 7:6
+      if (bet.number === 5 || bet.number === 9) return 7 / 5; // 7:5
+      if (bet.number === 4 || bet.number === 10) return 9 / 5; // 9:5
       return 1;
     case BetType.Hardways:
       if (bet.number === 4 || bet.number === 10) return 7; // 7:1
@@ -139,4 +142,17 @@ export const getWinMultiplier = (bet: Bet, dice: Dice): number => {
     default:
       return 1;
   }
+};
+
+export const getPlaceBetWinnings = (bets: Bet[], dice: Dice): number => {
+  let winnings = 0;
+
+  bets.forEach(bet => {
+    if (bet.type === BetType.Place && bet.number && dice.total === bet.number && bet.isOn) {
+      const multiplier = getWinMultiplier(bet, dice);
+      winnings += bet.amount * multiplier; // Just the winnings, not the original bet
+    }
+  });
+
+  return winnings;
 };

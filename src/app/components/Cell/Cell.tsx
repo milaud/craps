@@ -11,16 +11,19 @@ interface CellProps {
     totalBet?: number;
     winningNumber?: string;
     selectedChip?: number;
+    isPoint?: boolean;
+    isOff?: boolean;
 }
 
-export const Cell: React.FC<CellProps> = ({ style, id, displayName, onPlaceChip, totalBet, winningNumber, selectedChip = 25 }) => {
+export const Cell: React.FC<CellProps> = ({ id, displayName, onPlaceChip, totalBet = 0, winningNumber, selectedChip = 25, isPoint = false, isOff = false }) => {
     const isWinning = id === winningNumber;
     // Map total bet to chip color if matches 5,25,100; else default white
     const chipColor =
-        totalBet === 5 ? "#860404ff" :
-            totalBet === 25 ? "#069414" :
-                totalBet === 100 ? "#d4af37" :
-                    totalBet ? "#890fdbff" : "";
+        isOff ? "#999" :
+            totalBet === 5 ? "#860404ff" :
+                totalBet === 25 ? "#069414" :
+                    totalBet === 100 ? "#d4af37" :
+                        totalBet ? "#890fdbff" : "";
 
     // className={`${styles.cell} ${isWinning ? styles.highlight : ""}`}
 
@@ -32,17 +35,19 @@ export const Cell: React.FC<CellProps> = ({ style, id, displayName, onPlaceChip,
 
     return (
         <div
-            className={`${style} ${isWinning ? styles.highlight : ""}`}
+            className={styles.cell}
             title={`${displayName}`}
             onClick={handleClick}
         >
-            {/* {displayName} */}
-            <span className={styles.cellSpan}>{displayName}</span>
-            {totalBet && totalBet > 0 && (
-                <div className={styles.cellBet}>
-                    <div className={styles.chip} style={{ backgroundColor: chipColor }}>
-                        {totalBet}
-                    </div>
+            <span className={styles.cellText}>{displayName}</span>
+            {isPoint && (
+                <div className={styles.pointButton}>
+                    ON
+                </div>
+            )}
+            {totalBet > 0 && (
+                <div className={styles.chipBadge} style={{ backgroundColor: chipColor }}>
+                    {totalBet}
                 </div>
             )}
         </div>
@@ -61,10 +66,11 @@ export const PointCell: React.FC<CellProps> = ({
     );
 };
 
-export const PointCells: React.FC<{ onPlaceChip: (id: string, amount: number) => void; getBetsForCell: (id: string) => Bet[]; selectedChip: number }> = ({
+export const PointCells: React.FC<{ onPlaceChip: (id: string, amount: number) => void; getBetsForCell: (id: string) => Bet[]; selectedChip: number; point: number | null }> = ({
     onPlaceChip,
     getBetsForCell,
-    selectedChip
+    selectedChip,
+    point
 }) => {
 
     const pointNumbers = [
@@ -76,10 +82,11 @@ export const PointCells: React.FC<{ onPlaceChip: (id: string, amount: number) =>
         { id: '10', displayName: '10' }
     ];
     return (
-        <div className={styles.pointCells}>
+        <div className={styles.pointGrid}>
             {pointNumbers.map(({ id, displayName }) => {
                 const bets = getBetsForCell(id);
                 const totalBet = bets.reduce((sum, bet) => sum + bet.amount, 0);
+                const isOff = bets.some(bet => bet.isOn === false);
 
                 return (
                     <Cell
@@ -90,6 +97,8 @@ export const PointCells: React.FC<{ onPlaceChip: (id: string, amount: number) =>
                         onPlaceChip={onPlaceChip}
                         totalBet={totalBet}
                         selectedChip={selectedChip}
+                        isPoint={point === Number(id)}
+                        isOff={isOff}
                     />
                 );
             })}
@@ -108,7 +117,7 @@ export const DontComeBar: React.FC<{ onPlaceChip: (id: string, amount: number) =
 
 
     return (
-        <div className={styles.dontComeBar}>
+        <div className={styles.dontComeContainer}>
             <Cell
                 id="dontComeBar"
                 displayName="DON'T COME BAR"
@@ -159,7 +168,7 @@ export const PassLines: React.FC<{ onPlaceChip: (id: string, amount: number) => 
     selectedChip
 }) => {
     return (
-        <div className={styles.outerPassLine}>
+        <div className={styles.passLinesContainer}>
             <PassLine onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
             <DontPassBar onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
         </div>
@@ -173,7 +182,7 @@ export const ComeField: React.FC<{ onPlaceChip: (id: string, amount: number) => 
     selectedChip
 }) => {
     return (
-        <div className={styles.comeFieldContainer}>
+        <div className={styles.comeFieldGrid}>
             <Come onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
             <Field onPlaceChip={onPlaceChip} getBetsForCell={getBetsForCell} selectedChip={selectedChip} />
         </div>
