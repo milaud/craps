@@ -12,9 +12,9 @@ const CrapsGame: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Craps Table
-        </h1>
+        </h1> */}
 
         <GameStatus game={game} />
 
