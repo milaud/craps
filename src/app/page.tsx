@@ -1,11 +1,9 @@
-import { Table } from "./components/Table/Table";
-import styles from "./page.module.css";
+"use client";
+
+import CrapsGame from "./components/CrapsGame/CrapsGame";
 
 export default function Home() {
   return (
-    // <div className={styles.page}>
-    //   <Table />
-    // </div>
-    <Table />
+    <CrapsGame />
   );
 }
